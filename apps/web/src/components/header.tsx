@@ -1,27 +1,33 @@
 import { Link } from "@tanstack/react-router";
+import { UserButton } from "@clerk/tanstack-react-start";
 
-export default function Header() {
+export function Header() {
 	const links = [
-		{ to: "/", label: "Home" },
-		{ to: "/dashboard", label: "Dashboard" },
-		{ to: "/todos", label: "Todos" },
+		{ to: "/", label: "Editor" },
+		{ to: "/templates", label: "Templates" },
+		{ to: "/inspirations", label: "Inspirations" },
 	] as const;
 
 	return (
-		<div>
-			<div className="flex flex-row items-center justify-between px-2 py-1">
-				<nav className="flex gap-4 text-lg">
+		<header className="border-b bg-background">
+			<div className="flex flex-row items-center justify-between px-4 py-2">
+				<nav className="flex gap-4 text-sm font-medium">
 					{links.map(({ to, label }) => {
 						return (
-							<Link key={to} to={to}>
+							<Link
+								key={to}
+								to={to}
+								className="text-muted-foreground transition-colors hover:text-foreground"
+							>
 								{label}
 							</Link>
 						);
 					})}
 				</nav>
-				<div className="flex items-center gap-2"></div>
+				<div className="flex items-center gap-2">
+					<UserButton />
+				</div>
 			</div>
-			<hr />
-		</div>
+		</header>
 	);
 }

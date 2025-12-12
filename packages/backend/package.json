@@ -13,6 +13,11 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "convex": "catalog:"
+    "@tanstack/ai": "^0.0.3",
+    "@tanstack/ai-openai": "^0.0.3",
+    "convex": "catalog:",
+    "groq-sdk": "^0.37.0",
+    "inboundemail": "^0.19.0",
+    "zod": "^4.1.13"
   }
 }

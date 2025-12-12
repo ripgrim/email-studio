@@ -34,7 +34,13 @@ export function getRouter() {
 			defaultPreload: "intent",
 			defaultPendingComponent: () => <Loader />,
 			defaultNotFoundComponent: () => <div>Not Found</div>,
-			context: { queryClient, convexClient: convex, convexQueryClient },
+			context: { 
+				queryClient, 
+				convexClient: convex, 
+				convexQueryClient,
+				userId: null,
+				token: null,
+			},
 			Wrap: ({ children }) => (
 				<ConvexProvider client={convexQueryClient.convexClient}>
 					{children}

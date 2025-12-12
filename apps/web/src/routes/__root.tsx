@@ -8,7 +8,7 @@ import {
 	useRouteContext,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import Header from "../components/header";
+import { AppSidebar } from "../components/app-sidebar";
 import appCss from "../index.css?url";
 import type { QueryClient } from "@tanstack/react-query";
 import type { ConvexQueryClient } from "@convex-dev/react-query";
@@ -29,6 +29,8 @@ export interface RouterAppContext {
 	queryClient: QueryClient;
 	convexClient: ConvexReactClient;
 	convexQueryClient: ConvexQueryClient;
+	userId: string | null;
+	token: string | null;
 }
 
 export const Route = createRootRouteWithContext<RouterAppContext>()({
@@ -49,6 +51,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 			{
 				rel: "stylesheet",
 				href: appCss,
+				suppressHydrationWarning: true,
 			},
 		],
 	}),
@@ -68,15 +71,14 @@ function RootDocument() {
 	return (
 		<ClerkProvider>
 			<ConvexProviderWithClerk client={context.convexClient} useAuth={useAuth}>
-				<html lang="en" className="dark">
+				<html lang="en" className="dark overflow-x-hidden h-full">
 					<head>
 						<HeadContent />
 					</head>
-					<body>
-						<div className="grid h-svh grid-rows-[auto_1fr]">
-							<Header />
+					<body className="overflow-x-hidden h-full overflow-y-hidden">
+						<AppSidebar>
 							<Outlet />
-						</div>
+						</AppSidebar>
 						<Toaster richColors />
 						<TanStackRouterDevtools position="bottom-left" />
 						<Scripts />

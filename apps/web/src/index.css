@@ -1,96 +1,132 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import '@fontsource-variable/geist' layer(base);
+@import '@fontsource-variable/geist-mono' layer(base);
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@source "../node_modules/streamdown/dist/index.js";
+
+@plugin "tailwindcss-animate";
+
+@plugin "tailwind-scrollbar" {
+  nocompatible: true;
+  preferredStrategy: "pseudoelements";
+}
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --font-sans: "Inter", "Geist", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-}
-
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: rgb(253, 253, 253);
+  --foreground: rgb(0, 0, 0);
+  --card: rgb(253, 253, 253);
+  --card-foreground: rgb(0, 0, 0);
+  --popover: rgb(252, 252, 252);
+  --popover-foreground: rgb(0, 0, 0);
+  --primary: rgb(112, 51, 255);
+  --primary-foreground: rgb(255, 255, 255);
+  --secondary: rgb(237, 240, 244);
+  --secondary-foreground: rgb(8, 8, 8);
+  --muted: rgb(245, 245, 245);
+  --muted-foreground: rgb(82, 82, 82);
+  --accent: rgb(226, 235, 255);
+  --accent-foreground: rgb(30, 105, 220);
+  --destructive: rgb(229, 75, 79);
+  --destructive-foreground: rgb(255, 255, 255);
+  --border: rgb(231, 231, 238);
+  --input: rgb(235, 235, 235);
+  --ring: rgb(0, 0, 0);
+  --chart-1: rgb(74, 200, 133);
+  --chart-2: rgb(112, 51, 255);
+  --chart-3: rgb(253, 130, 43);
+  --chart-4: rgb(50, 118, 228);
+  --chart-5: rgb(116, 116, 116);
+  --sidebar: rgb(245, 248, 251);
+  --sidebar-foreground: rgb(0, 0, 0);
+  --sidebar-primary: rgb(0, 0, 0);
+  --sidebar-primary-foreground: rgb(255, 255, 255);
+  --sidebar-accent: rgb(235, 235, 235);
+  --sidebar-accent-foreground: rgb(0, 0, 0);
+  --sidebar-border: rgb(235, 235, 235);
+  --sidebar-ring: rgb(0, 0, 0);
+  --font-geist-sans: 'Geist Variable', 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-geist-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius: 1.4rem;
+  --shadow-x: 0px;
+  --shadow-y: 2px;
+  --shadow-blur: 3px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.16;
+  --shadow-color: hsl(0 0% 0%);
+  --shadow-2xs: 0px 2px 3px 0px hsl(0 0% 0% / 0.08);
+  --shadow-xs: 0px 2px 3px 0px hsl(0 0% 0% / 0.08);
+  --shadow-sm: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 1px 2px -1px hsl(0 0% 0% / 0.16);
+  --shadow: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 1px 2px -1px hsl(0 0% 0% / 0.16);
+  --shadow-md: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 2px 4px -1px hsl(0 0% 0% / 0.16);
+  --shadow-lg: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 4px 6px -1px hsl(0 0% 0% / 0.16);
+  --shadow-xl: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 8px 10px -1px hsl(0 0% 0% / 0.16);
+  --shadow-2xl: 0px 2px 3px 0px hsl(0 0% 0% / 0.40);
+  --tracking-normal: -0.025em;
+  --spacing: 0.27rem;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: rgb(26, 27, 30);
+  --foreground: rgb(240, 240, 240);
+  --card: rgb(34, 35, 39);
+  --card-foreground: rgb(240, 240, 240);
+  --popover: rgb(34, 35, 39);
+  --popover-foreground: rgb(240, 240, 240);
+  --primary: rgb(140, 92, 255);
+  --primary-foreground: rgb(255, 255, 255);
+  --secondary: rgb(42, 44, 51);
+  --secondary-foreground: rgb(240, 240, 240);
+  --muted: rgb(42, 44, 51);
+  --muted-foreground: rgb(160, 160, 160);
+  --accent: rgb(30, 41, 59);
+  --accent-foreground: rgb(121, 192, 255);
+  --destructive: rgb(248, 113, 113);
+  --destructive-foreground: rgb(255, 255, 255);
+  --border: rgb(51, 53, 58);
+  --input: rgb(51, 53, 58);
+  --ring: rgb(140, 92, 255);
+  --chart-1: rgb(74, 222, 128);
+  --chart-2: rgb(140, 92, 255);
+  --chart-3: rgb(252, 165, 165);
+  --chart-4: rgb(89, 147, 244);
+  --chart-5: rgb(160, 160, 160);
+  --sidebar: rgb(22, 22, 24);
+  --sidebar-foreground: rgb(240, 240, 240);
+  --sidebar-primary: rgb(140, 92, 255);
+  --sidebar-primary-foreground: rgb(255, 255, 255);
+  --sidebar-accent: rgb(42, 44, 51);
+  --sidebar-accent-foreground: rgb(140, 92, 255);
+  --sidebar-border: rgb(51, 53, 58);
+  --sidebar-ring: rgb(140, 92, 255);
+  --font-geist-sans: 'Geist Variable', 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-geist-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius: 1.4rem;
+  --shadow-x: 0px;
+  --shadow-y: 2px;
+  --shadow-blur: 3px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.16;
+  --shadow-color: hsl(0 0% 0%);
+  --shadow-2xs: 0px 2px 3px 0px hsl(0 0% 0% / 0.08);
+  --shadow-xs: 0px 2px 3px 0px hsl(0 0% 0% / 0.08);
+  --shadow-sm: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 1px 2px -1px hsl(0 0% 0% / 0.16);
+  --shadow: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 1px 2px -1px hsl(0 0% 0% / 0.16);
+  --shadow-md: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 2px 4px -1px hsl(0 0% 0% / 0.16);
+  --shadow-lg: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 4px 6px -1px hsl(0 0% 0% / 0.16);
+  --shadow-xl: 0px 2px 3px 0px hsl(0 0% 0% / 0.16), 0px 8px 10px -1px hsl(0 0% 0% / 0.16);
+  --shadow-2xl: 0px 2px 3px 0px hsl(0 0% 0% / 0.40);
 }
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -106,6 +142,7 @@ body {
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -122,13 +159,191 @@ body {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}
+
+body {
+  letter-spacing: var(--tracking-normal);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html, body {
+    @apply overflow-x-hidden h-full;
+  }
+  html {
+    @apply overflow-y-hidden;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans overscroll-none style-scrollbar overflow-y-hidden;
+  }
+}
+
+/* Scrollbar styling */
+@utility style-scrollbar {
+  @apply scrollbar scrollbar-w-0 scrollbar-thumb-accent/40 scrollbar-track-transparent hover:scrollbar-thumb-accent scrollbar-thumb-rounded-full;
+}
+
+@layer components {
+
+  /* Code blocks - better contrast and styling */
+  pre {
+    @apply rounded-md border border-border bg-card p-3 text-xs overflow-x-auto;
+    @apply font-mono leading-relaxed;
+    @apply shadow-sm;
+    margin: 0.5rem 0;
+  }
+
+  /* Chat code blocks - match CodeEditor styling */
+  .collapsible-code-container pre {
+    @apply m-0 bg-background border-0 p-4 text-xs font-mono leading-relaxed;
+    @apply shadow-none rounded-none;
+  }
+
+  pre code {
+    @apply bg-transparent p-0 border-0 text-xs;
+    @apply font-mono;
+    color: inherit;
+  }
+
+  /* Chat code blocks - transparent code background */
+  .collapsible-code-container pre code {
+    @apply bg-transparent;
+  }
+
+  /* Inline code - better contrast */
+  code:not(pre code) {
+    @apply rounded bg-muted px-1.5 py-0.5 text-xs font-mono;
+    @apply text-foreground border border-border/50;
+  }
+
+  /* Shiki CSS variables - transparent background */
+  :root {
+    --shiki-light-bg: transparent;
+    --shiki-dark-bg: transparent;
+  }
+
+  /* Shiki container - match CodeEditor styling */
+  pre[class*="shiki"],
+  pre[style*="--shiki"] {
+    @apply m-0 bg-background border-0 p-4 text-xs font-mono leading-relaxed;
+    @apply shadow-none rounded-none;
+  }
+
+  /* Override Shiki's default padding and background */
+  pre[class*="shiki"] code,
+  pre[style*="--shiki"] code {
+    @apply p-0 bg-transparent text-xs font-mono;
+  }
+
+  /* Chat code blocks - override Shiki colors to match CodeEditor */
+  .collapsible-code-container pre[class*="shiki"],
+  .collapsible-code-container pre[style*="--shiki"] {
+    @apply m-0 bg-background border-0 p-4 text-xs font-mono leading-relaxed;
+    @apply shadow-none rounded-none;
+    background-color: hsl(var(--background)) !important;
+  }
+
+  .collapsible-code-container pre[class*="shiki"] code,
+  .collapsible-code-container pre[style*="--shiki"] code {
+    @apply bg-transparent;
+    background-color: transparent !important;
+  }
+
+  /* Dark mode - better contrast */
+  .dark pre {
+    @apply bg-background;
+  }
+
+  .dark code:not(pre code) {
+    @apply bg-muted/60 border-border/50;
+  }
+
+  /* Better syntax highlighting - full opacity for contrast */
+  pre span[style*="color"] {
+    opacity: 1;
+  }
+
+  /* Override Shiki token colors in chat to match CodeEditor - more aggressive */
+  .collapsible-code-container pre[class*="shiki"] span[style*="color"],
+  .collapsible-code-container pre[style*="--shiki"] span[style*="color"] {
+    opacity: 1;
+  }
+
+  /* Force background to match CodeEditor exactly */
+  .collapsible-code-container pre[class*="shiki"],
+  .collapsible-code-container pre[style*="--shiki"] {
+    background: hsl(var(--background)) !important;
+    background-color: hsl(var(--background)) !important;
+  }
+
+  /* Tighter line height */
+  pre code {
+    @apply leading-relaxed;
+    line-height: 1.5;
+  }
+
+  /* Remove excessive spacing */
+  pre br {
+    display: none;
+  }
+
+  /* Collapsible code block styles */
+  .code-block-collapsed {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  .code-block-overlay {
+    transition: opacity 0.2s ease;
+  }
+
+  .code-block-toggle {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .code-block-toggle {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html,
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans overscroll-none style-scrollbar;
   }
 }

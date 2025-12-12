@@ -1,0 +1,12 @@
+{
+	"name": "@inbound-hackathon/ai",
+	"version": "1.0.0",
+	"main": "./index.ts",
+	"types": "./index.ts",
+	"dependencies": {
+		"@tanstack/ai": "^0.0.3",
+		"@tanstack/ai-openai": "^0.0.3",
+		"zod": "^4.1.13"
+	}
+}
+

@@ -1,51 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { convexQuery } from "@convex-dev/react-query";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "@inbound-hackathon/backend/convex/_generated/api";
+import { createFileRoute, redirect } from "@tanstack/react-router";
+import { LandingPage } from "@/components/landing/landing_page";
+import { PageContainer } from "@/components/layout/page_container";
 
 export const Route = createFileRoute("/")({
-	component: HomeComponent,
+	component: HomePage,
+	beforeLoad: async ({ context }) => {
+		// If not authenticated, redirect to login
+		const { userId } = context as { userId: string | null };
+		if (!userId) {
+			throw redirect({ to: "/login" });
+		}
+	},
 });
 
-const TITLE_TEXT = `
- ██████╗ ███████╗████████╗████████╗███████╗██████╗
- ██╔══██╗██╔════╝╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗
- ██████╔╝█████╗     ██║      ██║   █████╗  ██████╔╝
- ██╔══██╗██╔══╝     ██║      ██║   ██╔══╝  ██╔══██╗
- ██████╔╝███████╗   ██║      ██║   ███████╗██║  ██║
- ╚═════╝ ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝
-
- ████████╗    ███████╗████████╗ █████╗  ██████╗██╗  ██╗
- ╚══██╔══╝    ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝
-    ██║       ███████╗   ██║   ███████║██║     █████╔╝
-    ██║       ╚════██║   ██║   ██╔══██║██║     ██╔═██╗
-    ██║       ███████║   ██║   ██║  ██║╚██████╗██║  ██╗
-    ╚═╝       ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
- `;
-
-function HomeComponent() {
-	const healthCheck = useQuery(convexQuery(api.healthCheck.get, {}));
-
+function HomePage() {
 	return (
-		<div className="container mx-auto max-w-3xl px-4 py-2">
-			<pre className="overflow-x-auto font-mono text-sm">{TITLE_TEXT}</pre>
-			<div className="grid gap-6">
-				<section className="rounded-lg border p-4">
-					<h2 className="mb-2 font-medium">API Status</h2>
-					<div className="flex items-center gap-2">
-						<div
-							className={`h-2 w-2 rounded-full ${healthCheck.data === "OK" ? "bg-green-500" : healthCheck.isLoading ? "bg-orange-400" : "bg-red-500"}`}
-						/>
-						<span className="text-muted-foreground text-sm">
-							{healthCheck.isLoading
-								? "Checking..."
-								: healthCheck.data === "OK"
-									? "Connected"
-									: "Error"}
-						</span>
-					</div>
-				</section>
-			</div>
-		</div>
+		<PageContainer>
+			<LandingPage />
+		</PageContainer>
 	);
 }

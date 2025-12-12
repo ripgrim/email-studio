@@ -22,7 +22,11 @@
 		"noUncheckedSideEffectImports": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@inbound-hackathon/ai/*": ["../../packages/ai/*"],
+			"@inbound-hackathon/email/*": ["../../packages/email/*"],
+			"@inbound-hackathon/validation/*": ["../../packages/validation/*"],
+			"@inbound-hackathon/backend/convex/_generated/*": ["../../packages/backend/convex/_generated/*"]
 		}
 	}
 }

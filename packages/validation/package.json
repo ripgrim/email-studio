@@ -1,0 +1,11 @@
+{
+	"name": "@inbound-hackathon/validation",
+	"version": "1.0.0",
+	"main": "./index.ts",
+	"types": "./index.ts",
+	"dependencies": {
+		"zod": "^4.1.13"
+	}
+}
+
+
