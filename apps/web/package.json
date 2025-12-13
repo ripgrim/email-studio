@@ -47,7 +47,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
-    "convex": "catalog:",
+    "convex": "^1.29.3",
     "inboundemail": "^0.19.0",
     "lucide-react": "^0.560.0",
     "motion": "^12.23.26",
