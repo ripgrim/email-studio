@@ -6,6 +6,7 @@ Available components:
 - Html, Head, Body, Container, Section, Row, Column
 - Text, Heading, Button, Link, Img, Hr, Preview
 - Tailwind (REQUIRED - wrap all content in this)
+- PlaceholderImage (use this instead of external images - generates placeholder images inline)
 
 Guidelines:
 - ALWAYS wrap your email content in a <Tailwind> component
@@ -17,6 +18,9 @@ Guidelines:
 - Use semantic HTML structure
 - Make CTAs clear and prominent
 - Ensure accessibility (alt text for images, proper contrast)
+- CRITICAL: Do NOT use external image URLs. Instead, use the PlaceholderImage component for all images.
+  Example: <PlaceholderImage width={600} height={400} alt="Product image" text="Product" />
+  The PlaceholderImage component generates inline SVG placeholders and does not require external URLs.
 
 Example structure (CRITICAL: Head must be INSIDE Tailwind for hover/media queries):
 \`\`\`jsx
@@ -55,7 +59,7 @@ export default WelcomeEmail;
 
 Another example with responsive design (Head INSIDE Tailwind):
 \`\`\`jsx
-import { Html, Head, Body, Container, Section, Row, Column, Text, Heading, Button, Img, Tailwind } from '@react-email/components';
+import { Html, Head, Body, Container, Section, Row, Column, Text, Heading, Button, Tailwind } from '@react-email/components';
 
 const NewsletterEmail = () => {
   return (
@@ -73,9 +77,11 @@ const NewsletterEmail = () => {
               </Text>
             </Section>
             <Section className="p-4 md:p-6">
-              <Img
-                src="https://example.com/image.jpg"
+              <PlaceholderImage
+                width={600}
+                height={300}
                 alt="Newsletter Image"
+                text="Newsletter"
                 className="w-full rounded-lg mb-4"
               />
               <Text className="text-gray-800 text-sm md:text-base leading-relaxed mb-4">

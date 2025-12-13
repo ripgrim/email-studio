@@ -36,16 +36,9 @@ import {
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import type { ChatStatus, FileUIPart } from "ai";
-import {
-  CornerDownLeftIcon,
-  ImageIcon,
-  Loader2Icon,
-  MicIcon,
-  PaperclipIcon,
-  PlusIcon,
-  SquareIcon,
-  XIcon,
-} from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ImageIcon, Loading01Icon, MicIcon, PlusSignIcon, SquareIcon } from "@hugeicons/core-free-icons";
+import { PaperclipIcon, X, CornerDownLeftIcon } from "lucide-react";
 import { nanoid } from "nanoid";
 import {
   type ChangeEvent,
@@ -333,7 +326,7 @@ export function PromptInputAttachment({
               type="button"
               variant="ghost"
             >
-              <XIcon />
+              <X />
               <span className="sr-only">Remove</span>
             </Button>
           </div>
@@ -422,7 +415,7 @@ export const PromptInputActionAddAttachments = ({
         attachments.openFileDialog();
       }}
     >
-      <ImageIcon className="mr-2 size-4" /> {label}
+      <HugeiconsIcon icon={ImageIcon} className="mr-2 size-4" /> {label}
     </DropdownMenuItem>
   );
 };
@@ -990,7 +983,7 @@ export const PromptInputActionMenuTrigger = ({
 }: PromptInputActionMenuTriggerProps) => (
   <DropdownMenuTrigger asChild>
     <PromptInputButton className={className} {...props}>
-      {children ?? <PlusIcon className="size-4" />}
+      {children ?? <HugeiconsIcon icon={PlusSignIcon} className="size-4" />}
     </PromptInputButton>
   </DropdownMenuTrigger>
 );
@@ -1033,11 +1026,11 @@ export const PromptInputSubmit = ({
   let Icon = <CornerDownLeftIcon className="size-4" />;
 
   if (status === "submitted") {
-    Icon = <Loader2Icon className="size-4 animate-spin" />;
+    Icon = <HugeiconsIcon icon={Loading01Icon} className="size-4 animate-spin" />;
   } else if (status === "streaming") {
-    Icon = <SquareIcon className="size-4" />;
+    Icon = <HugeiconsIcon icon={SquareIcon} className="size-4" />;
   } else if (status === "error") {
-    Icon = <XIcon className="size-4" />;
+    Icon = <X className="size-4" />;
   }
 
   return (
@@ -1209,7 +1202,7 @@ export const PromptInputSpeechButton = ({
       onClick={toggleListening}
       {...props}
     >
-      <MicIcon className="size-4" />
+      <HugeiconsIcon icon={MicIcon} className="size-4" />
     </PromptInputButton>
   );
 };

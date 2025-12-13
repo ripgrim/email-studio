@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useEditorStore } from "@/stores/editor";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Loader } from "@/components/ai-elements/loader";
-import { AlertCircle, Eye, Code } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { AlertIcon, EyeIcon, CodeIcon } from "@hugeicons/core-free-icons";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { CodeEditor } from "./code_editor";
 
@@ -93,11 +94,11 @@ export function EmailPreview() {
 				<div className="shrink-0 flex items-center justify-between border-b border-border bg-background px-4 py-2">
 					<TabsList className="h-7">
 						<TabsTrigger value="preview" className="h-6 gap-1.5 px-2 text-xs">
-							<Eye className="h-3 w-3" />
+							<HugeiconsIcon icon={EyeIcon} className="h-3 w-3" />
 							Preview
 						</TabsTrigger>
 						<TabsTrigger value="code" className="h-6 gap-1.5 px-2 text-xs">
-							<Code className="h-3 w-3" />
+							<HugeiconsIcon icon={CodeIcon} className="h-3 w-3" />
 							Code
 						</TabsTrigger>
 					</TabsList>
@@ -122,7 +123,7 @@ export function EmailPreview() {
 						<div className="h-full overflow-y-auto style-scrollbar p-4">
 							<div className="rounded border border-destructive/50 bg-destructive/5 p-3">
 								<div className="mb-2 flex items-center gap-1.5">
-									<AlertCircle className="h-4 w-4 text-destructive" />
+									<HugeiconsIcon icon={AlertIcon} className="size-4 text-destructive" />
 									<h3 className="text-xs font-medium text-destructive">Error</h3>
 								</div>
 								<p className="text-xs text-destructive/80">{renderError}</p>

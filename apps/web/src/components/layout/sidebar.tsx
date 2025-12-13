@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import { useUIStore } from "@/stores/ui";
 import { Button } from "@/components/ui/button";
-import { X, Menu } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Menu01Icon } from "@hugeicons/core-free-icons";
+import { X } from "lucide-react";
 
 interface SidebarProps {
 	children?: ReactNode;
@@ -21,7 +23,7 @@ export function Sidebar({ children }: SidebarProps) {
 							size="icon"
 							onClick={() => setSidebarOpen(false)}
 						>
-							<X className="h-4 w-4" />
+							<X className="size-4" />
 						</Button>
 					</div>
 					<div className="flex-1 overflow-y-auto p-4">{children}</div>
@@ -34,7 +36,7 @@ export function Sidebar({ children }: SidebarProps) {
 					className="fixed left-4 top-4 z-50"
 					onClick={() => setSidebarOpen(true)}
 				>
-					<Menu className="h-4 w-4" />
+					<HugeiconsIcon icon={Menu01Icon} className="size-4" />
 				</Button>
 			)}
 		</>

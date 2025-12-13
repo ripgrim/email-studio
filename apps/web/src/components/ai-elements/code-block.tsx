@@ -2,7 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { CopyIcon } from "@hugeicons/core-free-icons";
+import { Check } from "lucide-react";
 import {
   type ComponentProps,
   createContext,
@@ -162,8 +164,6 @@ export const CodeBlockCopyButton = ({
     }
   };
 
-  const Icon = isCopied ? CheckIcon : CopyIcon;
-
   return (
     <Button
       className={cn("shrink-0", className)}
@@ -172,7 +172,7 @@ export const CodeBlockCopyButton = ({
       variant="ghost"
       {...props}
     >
-      {children ?? <Icon size={14} />}
+      {children ?? (isCopied ? <Check size={14} /> : <HugeiconsIcon icon={CopyIcon} size={14} />)}
     </Button>
   );
 };

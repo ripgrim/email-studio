@@ -6,8 +6,10 @@ import { useMutation } from "convex/react";
 import { api } from "@inbound-hackathon/backend/convex/_generated/api";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Send } from "lucide-react";
 import { toast } from "sonner";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { SentIcon } from "@hugeicons/core-free-icons";
+
 
 export function LandingPage() {
 	const [prompt, setPrompt] = useState("");
@@ -22,9 +24,9 @@ export function LandingPage() {
 		setIsCreating(true);
 		try {
 			const chatId = await createChat({ initialMessage: prompt.trim() });
-			router.navigate({ 
-				to: "/chat/$chatId", 
-				params: { chatId: chatId as string } 
+			router.navigate({
+				to: "/chat/$chatId",
+				params: { chatId: chatId as string }
 			});
 		} catch (error) {
 			console.error("Failed to create chat:", error);
@@ -36,30 +38,33 @@ export function LandingPage() {
 
 	return (
 		<div className="flex h-full flex-col items-center justify-center p-4">
-			<div className="w-full max-w-2xl space-y-6">
-				<div className="text-center space-y-2">
-					<h1 className="text-3xl font-bold">Create Email Templates with AI</h1>
-					<p className="text-muted-foreground">
-						Describe the email you want to create and we'll generate it for you
+			<div className="w-full max-w-2xl space-y-8">
+				<div className="text-center space-y-4">
+					<h1 className="text-3xl md:text-4xl font-semibold max-w-xl mx-auto">
+						What do you want to build?
+					</h1>
+					<p className="text-muted-foreground max-w-lg mx-auto">
+						Build emails with natural language.
 					</p>
 				</div>
 
-				<form onSubmit={handleSubmit} className="space-y-4">
+				<form onSubmit={handleSubmit} className="space-y-5">
 					<Textarea
 						value={prompt}
 						onChange={(e) => setPrompt(e.target.value)}
-						placeholder="e.g., Create a welcome email for new users..."
-						className="min-h-[120px] resize-none text-base"
+						placeholder="Create a welcome email for new subscribers..."
+						className="min-h-[140px] resize-none text-base placeholder:text-muted-foreground/60"
 						disabled={isCreating}
 					/>
 					<div className="flex justify-end">
 						<Button
 							type="submit"
 							disabled={!prompt.trim() || isCreating}
-							className="gap-2"
+							className="gap-2 font-medium px-6"
+							size="lg"
 						>
-							<Send className="h-4 w-4" />
-							{isCreating ? "Creating..." : "Start Chat"}
+							{isCreating ? "Creating your chat..." : "Begin Creating"}
+							<HugeiconsIcon icon={SentIcon} className="size-4" />
 						</Button>
 					</div>
 				</form>

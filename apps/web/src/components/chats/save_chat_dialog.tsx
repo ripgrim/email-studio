@@ -12,7 +12,8 @@ import {
 	DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Folder } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { FolderIcon } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 import type { Id } from "@inbound-hackathon/backend/convex/_generated/dataModel";
 
@@ -79,7 +80,7 @@ export function SaveChatDialog({
 						)}
 						onClick={() => setSelectedFolderId(null)}
 					>
-						<Folder className="h-3.5 w-3.5 mr-2" />
+						<HugeiconsIcon icon={FolderIcon} className="size-3.5 mr-2" />
 						No Folder
 					</Button>
 					{folders?.map((folder) => (
@@ -93,7 +94,7 @@ export function SaveChatDialog({
 							)}
 							onClick={() => setSelectedFolderId(folder._id)}
 						>
-							<Folder className="h-3.5 w-3.5 mr-2" />
+							<HugeiconsIcon icon={FolderIcon} className="size-3.5 mr-2" />
 							{folder.name}
 						</Button>
 					))}

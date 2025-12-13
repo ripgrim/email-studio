@@ -2,7 +2,8 @@ import { useQuery } from "convex/react";
 import { api } from "@inbound-hackathon/backend/convex/_generated/api";
 import { FolderItem } from "./folder_item";
 import { Button } from "@/components/ui/button";
-import { Plus, Folder } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { PlusSignIcon, FolderIcon } from "@hugeicons/core-free-icons";
 import { useUIStore } from "@/stores/ui";
 import { useMutation } from "convex/react";
 import { useState } from "react";
@@ -56,12 +57,12 @@ export function FolderTree() {
 			<Button
 				variant="ghost"
 				size="sm"
-				className={`h-7 w-full justify-start rounded-md px-2.5 text-xs text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors ${
-					selectedFolderId === null ? "bg-sidebar-accent text-sidebar-foreground font-medium" : ""
+				className={`h-7 w-full justify-start rounded-md px-2.5 text-xs text-sidebar-foreground/70 hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground hover:!font-medium transition-colors ${
+					selectedFolderId === null ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : ""
 				} group-data-[collapsible=icon]:justify-center`}
 				onClick={() => setSelectedFolder(null)}
 			>
-				<Folder className="h-3.5 w-3.5 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0" />
+				<HugeiconsIcon icon={FolderIcon} className="size-3.5 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0" />
 				<span className="group-data-[collapsible=icon]:hidden">All Templates</span>
 			</Button>
 
@@ -79,10 +80,10 @@ export function FolderTree() {
 				<Button
 					variant="ghost"
 					size="sm"
-					className="h-7 w-full justify-start rounded-md px-2.5 text-xs text-sidebar-foreground/50 hover:bg-sidebar-accent hover:text-sidebar-foreground/70 transition-colors group-data-[collapsible=icon]:justify-center"
+					className="h-7 w-full justify-start rounded-md px-2.5 text-xs text-sidebar-foreground/50 hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground hover:!font-medium transition-colors group-data-[collapsible=icon]:justify-center"
 					onClick={() => setIsCreating(true)}
 				>
-					<Plus className="h-3.5 w-3.5 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0" />
+					<HugeiconsIcon icon={PlusSignIcon} className="size-3.5 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0" />
 					<span className="group-data-[collapsible=icon]:hidden">New Folder</span>
 				</Button>
 			)}

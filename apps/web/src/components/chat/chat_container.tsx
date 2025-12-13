@@ -30,7 +30,8 @@ import {
 } from "@/components/ai-elements/task";
 import { Loader } from "@/components/ai-elements/loader";
 import { MentionAutocomplete } from "./mention_autocomplete";
-import { FileText, Search, Code, FileCode } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { File01Icon, SearchIcon, CodeIcon } from "@hugeicons/core-free-icons";
 
 type TaskItemData = {
 	type: "text" | "file";
@@ -134,13 +135,13 @@ export function ChatContainer({
 														const getIcon = () => {
 															switch (part.icon) {
 																case "search":
-																	return Search;
+																	return SearchIcon;
 																case "file":
-																	return FileText;
+																	return File01Icon;
 																case "code":
-																	return Code;
+																	return CodeIcon;
 																default:
-																	return FileCode;
+																	return CodeIcon;
 															}
 														};
 														const Icon = getIcon();
@@ -155,7 +156,7 @@ export function ChatContainer({
 																	className="[&>div]:cursor-default"
 																>
 																	<div className="flex w-full cursor-default items-center gap-2 text-sm text-muted-foreground">
-																		<Icon className="size-4" />
+																		<HugeiconsIcon icon={Icon} className="size-4" />
 																		<p className="text-sm">{part.title}</p>
 																	</div>
 																</TaskTrigger>
@@ -167,10 +168,10 @@ export function ChatContainer({
 																					{item.text}
 																					<TaskItemFile>
 																						{item.file.icon === "react" && (
-																							<FileCode className="size-4" />
+																							<HugeiconsIcon icon={CodeIcon} className="size-4" />
 																						)}
 																						{item.file.icon === "css" && (
-																							<FileCode className="size-4" />
+																							<HugeiconsIcon icon={CodeIcon} className="size-4" />
 																						)}
 																						<span>{item.file.name}</span>
 																					</TaskItemFile>

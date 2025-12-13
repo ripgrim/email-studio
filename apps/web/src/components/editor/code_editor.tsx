@@ -54,9 +54,9 @@ export function CodeEditor() {
 				className="absolute right-2 top-2 z-10 h-7 w-7 text-muted-foreground hover:text-foreground"
 			>
 				{isCopied ? (
-					<Check className="h-3.5 w-3.5" />
+					<Check className="size-3.5" />
 				) : (
-					<Copy className="h-3.5 w-3.5" />
+					<Copy className="size-3.5" />
 				)}
 			</Button>
 			<div className="h-full overflow-auto">

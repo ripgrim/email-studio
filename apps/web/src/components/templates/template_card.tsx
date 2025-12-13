@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MoreVertical, Trash2, Edit } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { MoreVerticalCircle01Icon, Delete01Icon, Edit01Icon } from "@hugeicons/core-free-icons";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -45,7 +46,7 @@ export function TemplateCard({
 							size="icon"
 							onClick={(e) => e.stopPropagation()}
 						>
-							<MoreVertical className="h-4 w-4" />
+							<HugeiconsIcon icon={MoreVerticalCircle01Icon} className="size-4" />
 						</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent align="end">
@@ -53,7 +54,7 @@ export function TemplateCard({
 							e.stopPropagation();
 							onEdit?.();
 						}}>
-							<Edit className="mr-2 h-4 w-4" />
+							<HugeiconsIcon icon={Edit01Icon} className="mr-2 size-4" />
 							Edit
 						</DropdownMenuItem>
 						<DropdownMenuItem
@@ -63,7 +64,7 @@ export function TemplateCard({
 							}}
 							className="text-destructive"
 						>
-							<Trash2 className="mr-2 h-4 w-4" />
+							<HugeiconsIcon icon={Delete01Icon} className="mr-2 size-4" />
 							Delete
 						</DropdownMenuItem>
 					</DropdownMenuContent>

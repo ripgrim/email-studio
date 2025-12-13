@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon, ArrowUp01Icon } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 
 interface CollapsibleCodeBlockProps {
@@ -58,12 +59,12 @@ export function CollapsibleCodeBlock({
 					>
 						{isExpanded ? (
 							<>
-								<ChevronUp className="h-3 w-3" />
+								<HugeiconsIcon icon={ArrowUp01Icon} className="h-3 w-3" />
 								Show less
 							</>
 						) : (
 							<>
-								<ChevronDown className="h-3 w-3" />
+								<HugeiconsIcon icon={ArrowDown01Icon} className="h-3 w-3" />
 								Show more
 							</>
 						)}

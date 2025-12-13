@@ -68,6 +68,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 
 function RootDocument() {
 	const context = useRouteContext({ from: Route.id });
+	
 	return (
 		<ClerkProvider>
 			<ConvexProviderWithClerk client={context.convexClient} useAuth={useAuth}>

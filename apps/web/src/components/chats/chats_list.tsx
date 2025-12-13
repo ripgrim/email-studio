@@ -4,7 +4,8 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useQuery } from "convex/react";
 import { api } from "@inbound-hackathon/backend/convex/_generated/api";
 import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { MessageIcon } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
 import type { Id } from "@inbound-hackathon/backend/convex/_generated/dataModel";
 
@@ -54,15 +55,14 @@ export function ChatsList() {
 						key={chat._id}
 						variant="ghost"
 						size="sm"
-						asChild
 						className={cn(
-							"h-7 w-full justify-start rounded-md px-2.5 text-xs font-normal text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors group-data-[collapsible=icon]:justify-center min-w-0 max-w-full",
-							isActive && "bg-sidebar-accent text-sidebar-foreground font-medium"
+							"h-7 w-full !justify-start rounded-md px-2.5 text-xs font-normal text-sidebar-foreground/70 hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground hover:!font-medium transition-colors group-data-[collapsible=icon]:!justify-center min-w-0 max-w-full",
+							isActive && "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
 						)}
 					>
-						<Link to="/chat/$chatId" params={{ chatId }} className="w-full min-w-0 max-w-full flex items-center overflow-hidden">
-							<MessageSquare className="h-3.5 w-3.5 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0 flex-shrink-0" />
-							<span className="truncate min-w-0 group-data-[collapsible=icon]:hidden flex-1" title={title}>
+						<Link to="/chat/$chatId" params={{ chatId }} className="w-full min-w-0 max-w-full flex items-center justify-start overflow-hidden">
+							<HugeiconsIcon icon={MessageIcon} className="size-4 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0 flex-shrink-0" />
+							<span className="truncate min-w-0 group-data-[collapsible=icon]:hidden flex-1 text-left" title={title}>
 								{title}
 							</span>
 						</Link>

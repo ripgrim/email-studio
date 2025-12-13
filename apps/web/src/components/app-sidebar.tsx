@@ -19,24 +19,25 @@ import {
 } from "@/components/ui/sidebar";
 import { FolderTree } from "@/components/templates/folder_tree";
 import { ChatsList } from "@/components/chats/chats_list";
-import { FileText, Sparkles, Home } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Home01Icon, File01Icon, SparklesIcon } from "@hugeicons/core-free-icons";
 import { SidebarToggleIcon } from "@/components/icons/sidebar-toggle";
 
 const menuItems = [
 	{
 		title: "Home",
 		url: "/",
-		icon: Home,
+		icon: Home01Icon,
 	},
 	{
 		title: "Templates",
 		url: "/templates",
-		icon: FileText,
+		icon: File01Icon,
 	},
 	{
 		title: "Inspirations",
 		url: "/inspirations",
-		icon: Sparkles,
+		icon: SparklesIcon,
 	},
 ];
 
@@ -74,10 +75,10 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
 										<SidebarMenuButton 
 											asChild 
 											isActive={isActive}
-											className="h-7 rounded-md px-2.5 text-xs text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-foreground data-[active=true]:font-medium transition-colors"
+											className="h-7 rounded-md px-2.5 text-xs text-sidebar-foreground/70 hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground hover:!font-medium data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground data-[active=true]:font-medium transition-colors"
 										>
 											<Link to={item.url}>
-												<Icon className="h-3.5 w-3.5 shrink-0" />
+												<HugeiconsIcon icon={Icon} className="size-3.5 shrink-0" />
 												<span className="group-data-[collapsible=icon]:hidden">{item.title}</span>
 											</Link>
 										</SidebarMenuButton>

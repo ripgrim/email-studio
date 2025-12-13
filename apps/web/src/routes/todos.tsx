@@ -9,7 +9,8 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { createFileRoute } from "@tanstack/react-router";
-import { Loader2, Trash2 } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Loading01Icon, Delete01Icon } from "@hugeicons/core-free-icons";
 import { useState } from "react";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -118,7 +119,7 @@ function TodosRoute() {
 										onClick={() => handleDeleteTodo(todo._id)}
 										aria-label="Delete todo"
 									>
-										<Trash2 className="h-4 w-4" />
+										<HugeiconsIcon icon={Delete01Icon} className="size-4" />
 									</Button>
 								</li>
 							))}

@@ -7,6 +7,7 @@ import { useEditorStore } from "@/stores/editor";
 import { useMutation } from "convex/react";
 import { useRouter } from "@tanstack/react-router";
 import { useAuth } from "@clerk/tanstack-react-start";
+import type { Id } from "@inbound-hackathon/backend/convex/_generated/dataModel";
 
 export function TemplateGrid() {
 	const { isSignedIn } = useAuth();
@@ -17,10 +18,10 @@ export function TemplateGrid() {
 
 	const templates = useQuery(
 		api.templates.list,
-		isSignedIn ? { folderId: selectedFolderId || null } : "skip"
+		isSignedIn ? { folderId: selectedFolderId as Id<"folders"> | null } : "skip"
 	) || [];
 
-	const handleTemplateClick = (templateId: string) => {
+	const handleTemplateClick = (templateId: Id<"templates">) => {
 		setCurrentTemplate(templateId);
 		router.navigate({ to: "/" });
 	};
@@ -45,7 +46,7 @@ export function TemplateGrid() {
 
 	if (templates.length === 0) {
 		return (
-			<div className="flex h-full items-center justify-center">
+			<div className="w-full flex h-full items-center justify-center">
 				<div className="text-center text-muted-foreground">
 					<p className="mb-2 text-lg font-medium">No templates yet</p>
 					<p className="text-sm">

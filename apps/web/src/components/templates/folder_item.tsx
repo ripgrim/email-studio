@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Folder, ChevronRight, MoreVertical } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { FolderIcon, ArrowRight01Icon, MoreVerticalCircle01Icon } from "@hugeicons/core-free-icons";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -40,12 +41,12 @@ export function FolderItem({
 			<Button
 				variant="ghost"
 				size="sm"
-				className={`h-7 w-full justify-start rounded-md px-2.5 text-xs font-normal text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors group-data-[collapsible=icon]:justify-center ${
-					isSelected ? "bg-sidebar-accent text-sidebar-foreground font-medium" : ""
+				className={`h-7 w-full justify-start rounded-md px-2.5 text-xs font-normal text-sidebar-foreground/70 hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground hover:!font-medium transition-colors group-data-[collapsible=icon]:justify-center ${
+					isSelected ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : ""
 				}`}
 				onClick={handleClick}
 			>
-				<Folder className="h-3.5 w-3.5 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0" />
+				<HugeiconsIcon icon={FolderIcon} className="size-3.5 shrink-0 mr-2 group-data-[collapsible=icon]:mr-0" />
 				<span className="flex-1 text-left truncate group-data-[collapsible=icon]:hidden">{name}</span>
 			</Button>
 			<DropdownMenu>
@@ -55,7 +56,7 @@ export function FolderItem({
 						size="icon"
 						className="absolute right-1 h-6 w-6 opacity-0 transition-opacity group-hover/menu-item:opacity-100 text-sidebar-foreground/50 hover:text-sidebar-foreground hover:bg-sidebar-accent group-data-[collapsible=icon]:hidden"
 					>
-						<MoreVertical className="h-3.5 w-3.5" />
+						<HugeiconsIcon icon={MoreVerticalCircle01Icon} className="size-3.5" />
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="end">

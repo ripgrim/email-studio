@@ -4,6 +4,7 @@ import { transform } from "@babel/standalone";
 
 // Import React Email components that might be used
 import * as ReactEmailComponents from "@react-email/components";
+import { PlaceholderImage } from "./placeholder-image";
 
 // Extract commonly used components
 const {
@@ -198,6 +199,7 @@ function compileCodeToComponent(code: string): React.ComponentType<any> {
 			"Hr",
 			"Preview",
 			"Tailwind",
+			"PlaceholderImage",
 			`return ${transformed.code}`
 		);
 
@@ -219,6 +221,7 @@ function compileCodeToComponent(code: string): React.ComponentType<any> {
 			Hr || ReactEmailComponents.Hr,
 			Preview || ReactEmailComponents.Preview,
 			Tailwind || ReactEmailComponents.Tailwind,
+			PlaceholderImage,
 		);
 		
 		if (!Component || typeof Component !== "function") {

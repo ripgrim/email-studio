@@ -144,7 +144,7 @@ const Sidebar = React.forwardRef<
     return (
       <div
         ref={ref}
-        className={cn("flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground", className)}
+        className={cn("flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground font-sans", className)}
         {...props}
       >
         {children}
@@ -228,7 +228,7 @@ const Sidebar = React.forwardRef<
         >
           <div
             className={cn(
-              "flex h-full w-full flex-col bg-sidebar group-data-[collapsible=icon]:overflow-hidden",
+              "flex h-full w-full flex-col bg-sidebar group-data-[collapsible=icon]:overflow-hidden font-sans",
               "overflow-hidden",
               variant === "floating" ? "rounded-lg border border-sidebar-border" : "",
               variant === "inset" ? "rounded-lg border border-sidebar-border" : ""
@@ -267,7 +267,7 @@ const SidebarTrigger = React.forwardRef<
       }}
       {...props}
     >
-      <SidebarToggleIcon className="h-3.5 w-3.5" />
+      <SidebarToggleIcon className="size-3.5" />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )
@@ -634,7 +634,7 @@ const SidebarMenuSkeleton = React.forwardRef<
       {...props}
     >
       {showIcon && (
-        <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-md bg-sidebar-primary/10" />
+        <div className="flex size-4 shrink-0 items-center justify-center rounded-md bg-sidebar-primary/10" />
       )}
       <div
         className="h-4 max-w-[--skeleton-width] flex-1 rounded-md bg-sidebar-primary/10"

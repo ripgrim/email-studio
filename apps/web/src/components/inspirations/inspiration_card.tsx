@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Eye } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { EyeIcon } from "@hugeicons/core-free-icons";
 
 interface InspirationCardProps {
 	slug: string;
@@ -40,7 +41,7 @@ export function InspirationCard({
 							onPreview?.();
 						}}
 					>
-						<Eye className="h-4 w-4" />
+						<HugeiconsIcon icon={EyeIcon} className="size-4" />
 					</Button>
 				</div>
 			</CardHeader>

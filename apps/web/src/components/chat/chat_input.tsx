@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import type { KeyboardEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Send } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { SentIcon } from "@hugeicons/core-free-icons";
 import { useChatStore } from "@/stores/chat";
 
 interface ChatInputProps {
@@ -75,7 +76,7 @@ export function ChatInput({
 				disabled={!input.trim() || disabled}
 				size="icon"
 			>
-				<Send className="h-4 w-4" />
+				<HugeiconsIcon icon={SentIcon} className="size-4" />
 			</Button>
 		</div>
 	);

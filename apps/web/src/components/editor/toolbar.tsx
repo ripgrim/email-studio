@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Save, Send } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { FloppyDiskIcon, SentIcon } from "@hugeicons/core-free-icons";
 
 interface ToolbarProps {
 	onSave?: () => void;
@@ -18,7 +19,7 @@ export function Toolbar({
 				onClick={onSave}
 				className="h-7 gap-1.5 px-2 text-xs"
 			>
-				<Save className="h-3.5 w-3.5" />
+				<HugeiconsIcon icon={FloppyDiskIcon} className="size-3.5" />
 				<span className="hidden sm:inline">Save</span>
 			</Button>
 			<Button 
@@ -27,7 +28,7 @@ export function Toolbar({
 				onClick={onSendTest}
 				className="h-7 gap-1.5 px-2 text-xs"
 			>
-				<Send className="h-3.5 w-3.5" />
+				<HugeiconsIcon icon={SentIcon} className="size-3.5" />
 				<span className="hidden sm:inline">Send Test</span>
 			</Button>
 		</div>
