@@ -108,3 +108,20 @@ export const updateFolder = mutation({
 	},
 });
 
+export const deleteChat = mutation({
+	args: { id: v.id("conversations") },
+	handler: async (ctx, { id }) => {
+		const identity = await ctx.auth.getUserIdentity();
+		if (!identity) throw new Error("Unauthorized");
+
+		const chat = await ctx.db.get(id);
+		if (!chat) throw new Error("Chat not found");
+		if (chat.userId !== identity.subject) {
+			throw new Error("Unauthorized");
+		}
+
+		await ctx.db.delete(id);
+		return { success: true };
+	},
+});
+
