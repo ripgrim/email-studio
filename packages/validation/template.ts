@@ -22,3 +22,4 @@ export type TemplateCreateInput = z.infer<typeof templateCreateSchema>;
 export type TemplateUpdateInput = z.infer<typeof templateUpdateSchema>;
 
 
+

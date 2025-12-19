@@ -20,7 +20,9 @@
     "dev:server": "turbo -F @inbound-hackathon/backend dev",
     "dev:setup": "turbo -F @inbound-hackathon/backend dev:setup"
   },
-  "dependencies": {},
+  "dependencies": {
+    "nitro": "^3.0.1-alpha.1"
+  },
   "devDependencies": {
     "turbo": "^2.5.4"
   },

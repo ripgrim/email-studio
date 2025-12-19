@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd packages/backend && npx convex deploy --cmd-url-env-var-name VITE_CONVEX_URL --cmd 'cd ../.. && bun run build'",
+  "buildCommand": "(cd packages/backend && npx --yes convex deploy --cmd-url-env-var-name VITE_CONVEX_URL --cmd 'cd ../../ && bun run build')",
   "installCommand": "bun install",
   "outputDirectory": "apps/web/.output",
   "framework": null

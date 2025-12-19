@@ -75,7 +75,7 @@ export const list = query({
 	args: {},
 	handler: async (ctx) => {
 		const identity = await ctx.auth.getUserIdentity();
-		if (!identity) throw new Error("Unauthorized");
+		if (!identity) return [];
 
 		return ctx.db
 			.query("conversations")
